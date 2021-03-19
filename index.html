@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>Javascript Piano Keyboard</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+
+            .key {
+                position: absolute;
+                font-family: Helvetica;
+                font-weight: 100;
+                font-size: 12px;
+                border: 1px solid rgba(32, 32, 32, 0.2);
+                border-radius: 0px 0px 5px 5px;
+                /* cursor: pointer; */
+                box-shadow: 0px 5px 1px rgba(32, 32, 32, 0.2);
+                -webkit-transition: margin 0.05s ease, background-color 0.05s ease,
+                    box-shadow 0.05s ease;
+            }
+            /* .key:hover {
+                background-color: #71db90;
+            } */
+
+            .key .label {
+                position: absolute;
+                bottom: 15px;
+                text-align: center;
+                left: 0px;
+                right: 0px;
+            }
+
+            .keyLabel {
+                font-weight: 900;
+                text-shadow: 0px -1px 5px #ffffff;
+                font-size: 15px;
+            }
+
+            .black {
+                background-color: rgb(32, 32, 32);
+                color: #ffffff;
+                z-index: 1;
+                text-shadow: 0px -1px 1px #ffd900;
+            }
+
+            .white {
+                background-color: #f2f2de;
+                color: #8d8d8d;
+                z-index: 0;
+                text-shadow: 0px 1px 1px #08e8f5;
+            }
+
+            .keyboard-holder {
+                margin: 30px 0px;
+                height: 200px;
+                position: relative;
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -o-user-select: none;
+            }
+
+            #sec-holder {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #sequence {
+                min-width: 450px;
+                max-width: 60vw;
+                min-height: 75px;
+                max-height: min-content;
+                background-color: rgb(172, 204, 255);
+                border-radius: 20px;
+                word-wrap: break-word;
+                padding: 25px;
+                font-size: 1.25em;
+                line-height: 1.5em;
+            }
+
+            button {
+                font-size: 1em;
+                height: 45px;
+                text-align: center;
+                border: none;
+                border-radius: 20px;
+                margin: 0px 25px;
+                margin-top: 10px;
+                margin-bottom: 30px;
+            }
+
+            #start {
+                width: 175px;
+                background-color: rgb(156, 243, 255);
+            }
+
+            #start:active{
+                background-color: rgb(94, 191, 204);
+            }
+
+            button:focus{
+                outline: none;
+            }
+
+            #stop {
+                background-color: rgb(255, 166, 166);
+                width: 75px;
+            }
+
+            #stop:active{
+                background-color: rgb(204, 104, 104);
+            }
+
+            .btn-holder {
+                width: 100%;
+            }
+
+            h1 {
+                width: 100%;
+                margin-top: 25px;
+                line-height: 2.5em;
+                font-size: 3em;
+                color: white;
+                background-color: rgb(76, 76, 175);
+            }
+
+            h2{
+                font-size: 1em;
+                color: gray;
+            }
+
+            /*.playing {background-color: #1BC0EA;}*/
+        </style>
+
+        <script src="audiosynth.js"></script>
+        <script src="markovMusic.js"></script>
+        <script src="playKeyboard.js"></script>
+    </head>
+
+    <body>
+        <section id="sec-holder">
+            <h2>Milton Eduardo Barroso Ramirez.</br>A01634505.</h2>
+            <h1>Markov DJ</h1>
+            <div id="keyboard" class="keyboard-holder"></div>
+            <div class="btn-holder">
+                <button id="start">Play some music!</button>
+                <button id="stop">Stop</button>
+            </div>
+            <div id="sequence"></div>
+        </section>
+
+        <script type="text/javascript">
+            playKeyboard();
+        </script>
+    </body>
+</html>
